@@ -278,6 +278,11 @@ header{
     font-family: 'Muli', sans-serif;
 }
 
+#container2{
+    display: flex;
+    justify-content: center;
+    font-family: 'Muli', sans-serif
+}
 
 
 /*Responsive para telefonos grandes y tablets*/

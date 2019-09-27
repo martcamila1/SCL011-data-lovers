@@ -1,5 +1,15 @@
 // Nav Menu Principal
 
+fetch('https://raw.githubusercontent.com/martcamila1/SCL011-data-lovers/master/src/data/pokemon/pokemon.json')
+.then(response => {
+ return response.json()})
+  //response.json()})  
+.then(data1 => {
+  const data = (data1.pokemon);
+  //}
+//) 
+
+
 document.getElementById("imagen-logo").addEventListener("click", () =>{
 //document.getElementById("news-screen").style.display="none";
 document.getElementById("home").style.display="block";
@@ -59,8 +69,8 @@ containerStatistics.addEventListener("click", ()=>{
     document.getElementById("root3").innerHTML="";
 });
 
-const data = window.POKEMON.pokemon;
-
+//const data = window.POKEMON.pokemon;
+let container3 = document.getElementById("container2")
 const container = document.getElementById("showPokemones")
   const selectCandy  = document.getElementById("candy_count");
   selectCandy.addEventListener("change", () =>{
@@ -68,11 +78,13 @@ const container = document.getElementById("showPokemones")
 //let valueCandy = selectCandy.options[selectCandy.selectedIndex].value
 
  let prindCandy = window.filterData.firstFilterCandy(data, valueCandy)
-
+let candyPercentage = (Math.round((prindCandy.length/151)*100));
 
 //                  // imprimir resultados
+
 document.getElementById("root3").innerHTML="";
 document.getElementById("showPokemones").innerHTML="";
+container3.innerHTML =  candyPercentage + " % de los Pokémons  evolucionan con " +  valueCandy + " caramelos " ; 
 prindCandy.forEach(element => {
 container.innerHTML += `<div>
                           <div class="cartPk">
@@ -95,10 +107,11 @@ container.innerHTML += `<div>
       let valueEgg = document.getElementById("type_egg").value    
     //let valueCandy = selectCandy.options[selectCandy.selectedIndex].value
      let prindEgg = window.filterData.secondFilterEggs(data, valueEgg)
-     
+     let eggPercentage = (Math.round((prindEgg.length/151)*100));
   
     //                  // imprimir resultados egss
    document.getElementById("showPokemones").innerHTML="";
+   container3.innerHTML =  eggPercentage + " % de los Pokémons  aparecen en los huevos de  " +  valueEgg  ;
       prindEgg.forEach(element => {
         container.innerHTML += `<div>
                                       <div class="cartPk">
@@ -117,13 +130,14 @@ container.innerHTML += `<div>
   
       const selectTypePokemon  = document.getElementById("type_Pokemon");
       selectTypePokemon.addEventListener("change", () =>{
-      let valueTypePokemon = document.getElementById("type_Pokemon").value    
-    //let valueCandy = selectCandy.options[selectCandy.selectedIndex].value
+      let valueTypePokemon = document.getElementById("type_Pokemon").value
+      
+     let textCandy = selectTypePokemon.options[selectTypePokemon .selectedIndex].text
      let printPokemon = window.filterData.thirdFilterType(data, valueTypePokemon)
-     
+     let typePercentage = (Math.round((printPokemon.length/151)*100));
     //                  // imprimir resultados Type
     document.getElementById("showPokemones").innerHTML="";
-  
+    container3.innerHTML =  typePercentage + " % de los Pokémons  son tipo  " +  textCandy  ;
      printPokemon.forEach(element => {
         container.innerHTML += `<div>
                                       <div class="cartPk">
@@ -191,8 +205,5 @@ containerCalcu.innerHTML = '<p class="resultCalcu">'+" El promedio de peso de lo
 
 });
 
-/*
-`<div id="calculoresult">
-                              '<p class="resultCalcu">'"El promedio de altura de los 151 Pokémones de la Región de Kanto es " +  (resultHeight).toFixed(2).bold() + "m"'</p>
-                              </div>`
-*/
+})
+.catch(err =>(err))
