@@ -54,14 +54,24 @@
     <div id="listSelect">
         <h3 class="title2">Conoce más de cerca todos los Pokemones de la Región de Kanto</h3>
             <div id="selectMenu" class="select-list">
-                <p>Ordenar por:</p>
-                    <select class="select" id="orden-pokedex">
-                        <option value="">Ordenar por</option>
-                        <option value="1-151">Orden Ascendente Pokedex</option>
-                        <option value="151-1">Orden Descendente Pokedex</option>
+                  <p>Mostrar por:</p>
+                    <select class="select" id="type_egg">
+                        <option value="">Huevos</option>
+                        <option value="2 km">Huevos de 2 km</option>
+                        <option value="5 km">Huevos de 5 km</option>
+                        <option value="10 km">Huevos de 10 km</option>
+                        <option value="Not in Eggs">Sin huevo</option>
                     </select>
 
-                <p>Mostrar por:</p>
+                    <select class="select" id="candy_count">
+                        <option value="">Candy</option>
+                        <option value="12">12 Caramelos</option>
+                        <option value="25">25 Caramelos</option>
+                        <option value="50">50 Caramelos</option>
+                        <option value="100">100 Caramelos</option>
+                        <option value="400">400 Caramelos</option>
+                    </select>
+                    
                     <select class="select" id="type_Pokemon">
                         <option value="">Tipo</option>
                         <option value="Water">Agua</option>
@@ -81,22 +91,13 @@
                         <option value="Flying">Volador</option>
                     </select>
 
-                
-                    <select class="select" id="type_egg">
-                        <option value="">Huevos</option>
-                        <option value="2 km">Huevos de 2 km</option>
-                        <option value="5 km">Huevos de 5 km</option>
-                        <option value="10 km">Huevos de 10 km</option>
-                        <option value="Not in Eggs">Sin huevo</option>
-                    </select>
-
-                    <select class="select" id="candy_count">
-                        <option value="">Candy</option>
-                        <option value="12">12 Caramelos</option>
-                        <option value="25">25 Caramelos</option>
-                        <option value="50">50 Caramelos</option>
-                        <option value="100">100 Caramelos</option>
-                        <option value="400">400 Caramelos</option>
+                    <p>Ordenar tipo por:</p>
+                    <select class="select" id="orden-pokedex">
+                        <option value="">Ordenar por</option>
+                        <option value="1-151">Orden Ascendente Pokedex</option>
+                        <option value="151-1">Orden Descendente Pokedex</option>
+                        <option value="A-Z">Orden A - Z</option>
+                        <option value="Z-A">Orden Z - A</option>
                     </select>
             </div>
                 <div id="container2"></div>

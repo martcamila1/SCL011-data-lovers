@@ -6,9 +6,7 @@ fetch('https://raw.githubusercontent.com/martcamila1/SCL011-data-lovers/master/s
   //response.json()})  
 .then(data1 => {
   const data = (data1.pokemon);
-  //}
-//) 
-
+  
 
 document.getElementById("imagen-logo").addEventListener("click", () =>{
 //document.getElementById("news-screen").style.display="none";
@@ -49,6 +47,22 @@ const container2 = document.getElementById("root3")
 </div>`
 
 })
+// crear funcion para cartas en forma global
+
+let cardsPokemonGo = (data) => {
+  data.forEach(element =>
+     {container.innerHTML += `<div>
+                          <div class="cartPk">
+                          <img class="imgPk" src = ${element.img}>
+                            <div class="cartPk1">
+                              <p id="pokeName"> ${element.name}</p>
+                              <p id="pokedex"> # ${element.id}</p>
+                              <p id="pokeHeigth"> Altura: ${element.height}</p>
+                              <p id="pokeWeigth"> Peso: ${element.weight}</p>
+                            </div>
+                      </div>
+                    </div>`
+})}
 
 const selects1 = document.getElementById("listSelect");
 const containerFilters = document.getElementById("button-menu2");
@@ -57,6 +71,8 @@ containerFilters.addEventListener("click", ()=>{
     document.getElementById("estadisticas-screen").style.display="none";
     document.getElementById("home").style.display="none";
     document.getElementById("root3").innerHTML="";
+    cardsPokemonGo(data)
+   
 });
 
 const statistics = document.getElementById("estadisticas-screen");
@@ -71,33 +87,34 @@ containerStatistics.addEventListener("click", ()=>{
 
 //const data = window.POKEMON.pokemon;
 let container3 = document.getElementById("container2")
+
 const container = document.getElementById("showPokemones")
   const selectCandy  = document.getElementById("candy_count");
+
   selectCandy.addEventListener("change", () =>{
   let valueCandy = document.getElementById("candy_count").value
-//let valueCandy = selectCandy.options[selectCandy.selectedIndex].value
-
- let prindCandy = window.filterData.firstFilterCandy(data, valueCandy)
-let candyPercentage = (Math.round((prindCandy.length/151)*100));
+  let prindCandy = window.filterData.firstFilterCandy(data, valueCandy)
+  let candyPercentage = (Math.round((prindCandy.length/151)*100));
 
 //                  // imprimir resultados
 
 document.getElementById("root3").innerHTML="";
 document.getElementById("showPokemones").innerHTML="";
 container3.innerHTML =  candyPercentage + " % de los Pokémons  evolucionan con " +  valueCandy + " caramelos " ; 
-prindCandy.forEach(element => {
-container.innerHTML += `<div>
-                          <div class="cartPk">
-                              <img class="imgPk" src = ${element.img}>
-                                <div class="cartPk1">
-                                  <p id="pokeName"> ${element.name}</p>
-                                  <p id="pokedex"> # ${element.id}</p>
-                                  <p id="pokeHeigth"> Altura: ${element.height}</p>
-                                  <p id="pokeWeigth"> Peso: ${element.weight}</p>
-                                </div>
-                          </div>
-                        </div>`
-    });
+cardsPokemonGo(prindCandy)
+// prindCandy.forEach(element => {
+// container.innerHTML += `<div>
+//                           <div class="cartPk">
+//                               <img class="imgPk" src = ${element.img}>
+//                                 <div class="cartPk1">
+//                                   <p id="pokeName"> ${element.name}</p>
+//                                   <p id="pokedex"> # ${element.id}</p>
+//                                   <p id="pokeHeigth"> Altura: ${element.height}</p>
+//                                   <p id="pokeWeigth"> Peso: ${element.weight}</p>
+//                                 </div>
+//                           </div>
+//                         </div>`
+//     });
 
   });
   
@@ -154,36 +171,20 @@ container.innerHTML += `<div>
   
           })})
   
-  
-        
-        const orderPk  = document.getElementById("orden-pokedex");
-        orderPk.addEventListener("change", () =>{
-        let sortOrder= document.getElementById("orden-pokedex").value   
-       let printOrder = window.order.sortData(data, sortOrder)
-       document.getElementById("showPokemones").innerHTML="";
-  
-       printOrder.forEach(element => {
-        container.innerHTML += `<div>
-                                  <div class="cartPk">
-                                      <img src = ${element.img} class="imgPk">
-                                    <div class="cartPk1">
-                                        <p id="pokeName"> ${element.name}</p>
-                                        <p id="pokedex"> # ${element.id}</p>
-                                        <p id="pokeHeigth"> Altura: ${element.height}</p>
-                                        <p id="pokeWeigth"> Peso: ${element.weight}</p>
-                                    </div>
-                                  </div>
-                                </div>
-                                `
+       //Orden del filtro tipo 
 
-          
+       const orderPk  = document.getElementById("orden-pokedex");
+       orderPk.addEventListener("change", () =>{
+       document.getElementById("showPokemones").innerHTML=""; 
+         
+      let sortOrder= document.getElementById("orden-pokedex").value 
+       let valueTypePokemon = document.getElementById("type_Pokemon").value
+       let printPokemon = window.filterData.thirdFilterType(data, valueTypePokemon)
+       let printOrder = window.order.sortData(printPokemon, sortOrder)
+       cardsPokemonGo(printOrder)
+       })
 
-        
-        })})
-
-
-
-
+      
 // Mostrar Funcion Calculo
 const buttonHeight= document.getElementById("height")
 const containerCalcu = document.getElementById("calculoresult");

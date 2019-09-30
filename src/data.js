@@ -39,6 +39,12 @@
   if(sortOrder == "1-151" ){
     return (pk1.id < pk2.id) ? -1 : 1
  } 
+  else if (sortOrder == "A-Z" )
+ return (pk1.name < pk2.name) ? -1 : 1
+ 
+ else if(sortOrder == "Z-A"){
+  return (pk1.name > pk2.name) ? -1 : 1
+ }
 else  {
   return (pk1.id > pk2.id) ? -1 : 1
 }
@@ -53,34 +59,29 @@ return ordenarPokemon
 
    window.calcuData={
     computeStats:(data) => {
- const averageHeigh = data.map(element => {
-   return parseFloat(element.height)})
-  let add = 0;
- for(let i = 0; i < averageHeigh.length; i++){
-     add += averageHeigh[i];
-   }
-   let average =parseFloat(add/averageHeigh.length) 
+      const averageHeigh = data.map(element => {
+        return parseFloat(element.height)})
+        const acumHeigh = averageHeigh.reduce((acum, elemt) => acum + elemt, 0)
+        let average =parseFloat(acumHeigh/averageHeigh.length) 
+    
  
    return average;
    
    
     },
-  
-  
+    
 
     computeStatswWeight:(data) => {
- const averageWeight = data.map(element => {
-   return parseFloat(element.weight)})
-  let add = 0;
- for(let i = 0; i < averageWeight.length; i++){
-     add += averageWeight[i];
-   }
-   let average =parseFloat(add/averageWeight.length) 
-
+      const averageWeight = data.map(element => {
+      return parseFloat(element.weight)})
+      const acumWeight = averageWeight.reduce((acum, elemt) => acum + elemt, 0)
+      let average =parseFloat(acumWeight/averageWeight.length) 
+ 
  
    return average;
    
    
     }
   }
- 
+
+  

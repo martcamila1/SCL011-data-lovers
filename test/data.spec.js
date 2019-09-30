@@ -97,15 +97,18 @@ describe('filterData.thirdFilterType', () => {
   const sample = [
     {
     
-    "id": 1
+    "id": 1,
+    "name": "Bulbasaur",
     },
     {
      
      "id": 2,
+     "name": "Ivysaur"
   },
 {
      
        "id": 3,
+       "name": "Venusaur"
     },
 
   ]
@@ -116,11 +119,17 @@ describe('order.sortData', () => {
   });
 
   it('debería retornar objeto "1 ,2 , 3", para ordenado pokedex 1-151 ', () => {
-    assert.deepEqual(window.order.sortData(sample ,'1-151' ),[{"id": 1},{"id": 2},{"id": 3}]);
+    assert.deepEqual(window.order.sortData(sample ,'1-151' ),[{"id": 1,"name": "Bulbasaur"},{"id": 2,"name": "Ivysaur"},{"id": 3,"name": "Venusaur"}]);
     });
   it('debería retornar objeto "3 ,2 , 1", para ordenado pokedex 151-1 ', () => {
-  assert.deepEqual(window.order.sortData(sample ,'151-1' ),[{"id": 3},{"id": 2},{"id": 1}]);
+  assert.deepEqual(window.order.sortData(sample ,'151-1' ),[{"id": 3,"name": "Venusaur"},{"id": 2,"name": "Ivysaur"},{"id": 1,"name": "Bulbasaur"}]);
   });
+  it('debería retornar objeto "Bulbasaur ,Ivysaur , Venusaur", para ordenado A-Z ', () => {
+    assert.deepEqual(window.order.sortData(sample ,'A-Z' ),[{"id": 1,"name": "Bulbasaur"},{"id": 2,"name": "Ivysaur"},{"id": 3,"name": "Venusaur"}]);
+    });
+    it('debería retornar objeto "Venusaur,Ivysaur ,Bulbasaur", para ordenado Z-A ', () => {
+      assert.deepEqual(window.order.sortData(sample ,'Z-A' ),[{"id": 3,"name": "Venusaur"},{"id": 2,"name": "Ivysaur"},{"id": 1,"name": "Bulbasaur"}]);
+      }); 
   
 })
  })
