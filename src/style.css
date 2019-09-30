@@ -30,6 +30,7 @@ body{
 }
 nav {
     background-color: #FFCD02;
+    
 }
 
 nav, header{
@@ -137,7 +138,7 @@ h4{
 
 p{
     display: inline-block;
-    font-size: 12px;
+    font-size: 14px;
     margin: 20px;
 }
 
@@ -512,7 +513,11 @@ header{
         font-size: 13px;
     }
     #container2{
-        font-size: 14px
+        font-size: 12px
+    }
+    p{
+        margin: 10px;
+        text-align: center;
     }
 }
 

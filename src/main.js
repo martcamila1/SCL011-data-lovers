@@ -1,9 +1,8 @@
-// Nav Menu Principal
 
 fetch('https://raw.githubusercontent.com/martcamila1/SCL011-data-lovers/master/src/data/pokemon/pokemon.json')
 .then(response => {
  return response.json()})
-  //response.json()})  
+   
 .then(data1 => {
   const data = (data1.pokemon);
   
@@ -47,8 +46,8 @@ const container2 = document.getElementById("root3")
 </div>`
 
 })
-// crear funcion para cartas en forma global
 
+// crear funcion para cartas en forma global
 let cardsPokemonGo = (data) => {
   data.forEach(element =>
      {container.innerHTML += `<div>
@@ -88,7 +87,7 @@ containerStatistics.addEventListener("click", ()=>{
 //const data = window.POKEMON.pokemon;
 let container3 = document.getElementById("container2")
 
-const container = document.getElementById("showPokemones")
+  const container = document.getElementById("showPokemones")
   const selectCandy  = document.getElementById("candy_count");
 
   selectCandy.addEventListener("change", () =>{
@@ -119,10 +118,10 @@ cardsPokemonGo(prindCandy)
   });
   
   
-      const selectEgg  = document.getElementById("type_egg");
-      selectEgg.addEventListener("change", () =>{
-      let valueEgg = document.getElementById("type_egg").value    
-    //let valueCandy = selectCandy.options[selectCandy.selectedIndex].value
+     const selectEgg  = document.getElementById("type_egg");
+     selectEgg.addEventListener("change", () =>{
+     let valueEgg = document.getElementById("type_egg").value    
+    
      let prindEgg = window.filterData.secondFilterEggs(data, valueEgg)
      let eggPercentage = (Math.round((prindEgg.length/151)*100));
   
