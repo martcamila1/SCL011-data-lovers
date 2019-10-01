@@ -128,21 +128,9 @@ cardsPokemonGo(prindCandy)
     //                  // imprimir resultados egss
    document.getElementById("showPokemones").innerHTML="";
    container3.innerHTML =  eggPercentage + " % de los Pokémons  aparecen en los huevos de  " +  valueEgg  ;
-      prindEgg.forEach(element => {
-        container.innerHTML += `<div>
-                                      <div class="cartPk">
-                                      <img src = ${element.img} class="imgPk">
-                                      <div class="cartPk1">
-                                      <p id="pokeName"> ${element.name}</p>
-                                      <p id="pokedex"> # ${element.id}</p>
-                                      <p id="pokeHeigth"> Altura: ${element.height}</p>
-                                      <p id="pokeWeigth"> Peso: ${element.weight}</p>
-                                     </div>
-                                      </div>
-                                      </div>
-                                  `
-  
-          })})
+   cardsPokemonGo(prindEgg)
+      
+        })
   
       const selectTypePokemon  = document.getElementById("type_Pokemon");
       selectTypePokemon.addEventListener("change", () =>{
@@ -154,21 +142,8 @@ cardsPokemonGo(prindCandy)
     //                  // imprimir resultados Type
     document.getElementById("showPokemones").innerHTML="";
     container3.innerHTML =  typePercentage + " % de los Pokémons  son tipo  " +  textCandy  ;
-     printPokemon.forEach(element => {
-        container.innerHTML += `<div>
-                                      <div class="cartPk">
-                                      <img src = ${element.img} class="imgPk">
-                                      <div class="cartPk1">
-                                      <p id="pokeName"> ${element.name}</p>
-                                      <p id="pokedex"> # ${element.id}</p>
-                                      <p id="pokeHeigth"> Altura: ${element.height}</p>
-                                      <p id="pokeWeigth"> Peso: ${element.weight}</p>
-                                     </div>
-                                      </div>
-                                      </div>
-                                  `
-  
-          })})
+    cardsPokemonGo(printPokemon)
+     })
   
        //Orden del filtro tipo 
 
